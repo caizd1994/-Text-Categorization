@@ -3,11 +3,11 @@ import numpy as np
 import pandas as pd
 
 
-data = pd.read_csv("data.csv")
+data = pd.read_csv("../data/data.csv")
 
 
 
-writer = tf.python_io.TFRecordWriter("train.tfrecords")
+writer = tf.python_io.TFRecordWriter("../data/train.tfrecords")
 train = data[data['target'] != -1]
 
 for index, row in train.iterrows():
@@ -27,7 +27,7 @@ for index, row in train.iterrows():
 writer.close()
 
 
-writer = tf.python_io.TFRecordWriter("test.tfrecords")
+writer = tf.python_io.TFRecordWriter("../data/test.tfrecords")
 test = data[data['target'] == -1]
 for index, row in train.iterrows():
     # print(row['target'])
